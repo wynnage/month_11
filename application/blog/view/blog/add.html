@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <form action="{:url('Blog/save')}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="__token__" value="{$Request.token}" />
+        <div class="form-group">
+            <lable>标题</lable>
+            <input type="text" name="blog_title" class="form-control">
+        </div>
+        <div class="form-group">
+            <lable>内容</lable>
+            <textarea name="blog_desc" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <lable>博客配图</lable>
+            <input type="file" name="blog_img" class="form-control">
+        </div>
+        
+        <button class="btn btn-primary" type="submit">发布</button>
+    </form>
+</div>
+</body>
+</html>

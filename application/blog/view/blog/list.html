@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .list-group{
+            width: 1000px;
+            border: 1px solid #cccccc;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="list-group">
+    <H3>欢迎 {$Think.session.username}</H3><a href="{:url('Login/logout')}">注销</a>
+    {volist name="data" id="v"}
+    <a href="{:url('Blog/read')}?id={$v.id}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{$v.blog_title}</h5>
+            <small class="text-muted"><img src="{$v.blog_img}" alt="" width="100" height="100"></small>
+        </div>
+        <p class="mb-1">{$v.blog_desc}</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+    {/volist}
+    <button class="btn btn-primary" type="button"><a href="{:url('Blog/create')}" style="color: whitesmoke">发布主题</a></button>
+</div>
+</body>
+</html>
